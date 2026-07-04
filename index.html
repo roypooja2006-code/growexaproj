@@ -1,1 +1,806 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Growexa AI - Intelligent Customer Profit Optimization</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="app-wrapper">
+
+<!-- ================= Sidebar ================= -->
+
+<aside class="rail">
+
+<div class="rail-logo">
+<span class="logo-mark">GX</span>
+<h3 class="rail-brand">Growexa</h3>
+</div>
+
+<nav class="rail-nav">
+
+<button class="rail-btn active" data-section="dashboard">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+<span>Dashboard</span>
+</button>
+
+<button class="rail-btn" data-section="upload">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4"/><path d="m7 8 5-5 5 5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+<span>Upload CSV</span>
+</button>
+
+<button class="rail-btn" data-section="recommendations">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"/><circle cx="9" cy="13" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.4" fill="currentColor" stroke="none"/><path d="M12 7V4M9 4h6"/></svg>
+<span>AI Recommendation</span>
+</button>
+
+<button class="rail-btn" data-section="segments">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="17" cy="8" r="2.6"/><path d="M16 14.2c2.7.5 4.6 2.6 4.6 5.8"/></svg>
+<span>Segments</span>
+</button>
+
+<button class="rail-btn" data-section="campaigns">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a2 2 0 0 0 2 2h2l4 4V5L7 9H5a2 2 0 0 0-2 2Z"/><path d="M16 8a5 5 0 0 1 0 8"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>
+<span>Campaigns</span>
+</button>
+
+<button class="rail-btn" data-section="messaging">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-3.6-.8L3 20l1-4.9a8.4 8.4 0 0 1-.9-3.8A8.4 8.4 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5Z"/></svg>
+<span>Messaging</span>
+</button>
+
+<button class="rail-btn" data-section="analytics">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M2 20h20"/></svg>
+<span>Analytics</span>
+</button>
+
+<button class="rail-btn" data-section="assistant">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+<span>AI Assistant</span>
+</button>
+
+</nav>
+
+</aside>
+
+<!-- ================= Main ================= -->
+
+<main class="main">
+
+<header class="topbar">
+
+<div>
+
+<h1 id="page-title">
+Growexa AI Dashboard
+</h1>
+
+<p class="eyebrow">
+
+Customer Profit Optimization Platform
+
+</p>
+
+</div>
+
+<div class="topbar-right">
+
+<div class="search-box">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+
+<input
+type="text"
+placeholder="Search Customers...">
+
+</div>
+
+<button
+class="theme-toggle"
+id="themeToggle">
+
+Dark
+
+</button>
+
+<div class="avatar">
+
+GX
+
+</div>
+
+</div>
+
+</header>
+
+<div class="scroll-area">
+
+<!-- ================= LIVE TICKER ================= -->
+
+<div class="ledger-ticker">
+
+<div class="ledger-label">
+
+<span class="dot"></span> LIVE AI DECISIONS
+
+</div>
+
+<div class="ledger-window">
+<div
+id="ledgerTrack"
+class="ledger-track">
+
+</div>
+</div>
+
+</div>
+
+<!-- ================= DASHBOARD SECTION ================= -->
+
+<section
+class="section active"
+id="dashboard">
+
+<div class="kpi-grid">
+
+<div class="kpi-card">
+<p>Total Customers</p>
+<h2 id="customerCount">0</h2>
+</div>
+
+<div class="kpi-card">
+<p>Total Revenue</p>
+<h2 id="revenueValue">₹0</h2>
+</div>
+
+<div class="kpi-card">
+<p>Average Spend</p>
+<h2 id="avgSpend">₹0</h2>
+</div>
+
+<div class="kpi-card">
+<p>Highest Spend</p>
+<h2 id="highestSpend">₹0</h2>
+</div>
+
+<div class="kpi-card">
+<p>Returning Customers</p>
+<h2 id="returnCustomer">0</h2>
+</div>
+
+<div class="kpi-card">
+<p>Cart Abandoned</p>
+<h2 id="cartCount">0</h2>
+</div>
+
+</div>
+
+<div class="kpi-grid">
+<div class="kpi-card">
+  <p class="kpi-label">Revenue This Month</p>
+  <p class="kpi-value">₹18.4L</p>
+  <p class="kpi-delta up">▲ 12.6% vs last month</p>
+</div>
+<div class="kpi-card accent">
+  <p class="kpi-label">Profit Generated</p>
+  <p class="kpi-value">₹5.5L</p>
+  <p class="kpi-delta up">▲ 37.5% vs flat discounting</p>
+</div>
+<div class="kpi-card">
+  <p class="kpi-label">Marketing ROI</p>
+  <p class="kpi-value">4.8×</p>
+  <p class="kpi-delta up">▲ 0.6× this quarter</p>
+</div>
+<div class="kpi-card">
+  <p class="kpi-label">Active Customers</p>
+  <p class="kpi-value">12,940</p>
+  <p class="kpi-delta up">▲ 3.1% growth</p>
+</div>
+<div class="kpi-card">
+  <p class="kpi-label">Retention Rate</p>
+  <p class="kpi-value">71.2%</p>
+  <p class="kpi-delta down">▼ 1.1% this week</p>
+</div>
+<div class="kpi-card warn">
+  <p class="kpi-label">Discount Savings</p>
+  <p class="kpi-value">₹6.5L</p>
+  <p class="kpi-delta up">Avoided this month</p>
+</div>
+</div>
+
+<div class="panel-row">
+<div class="panel ai-summary">
+  <h3>AI Profit Summary</h3>
+  <div class="ai-summary-grid">
+    <div>
+      <p class="num">12,940</p>
+      <p class="label">Customers Analyzed</p>
+    </div>
+    <div>
+      <p class="num accent-text">8,310</p>
+      <p class="label">Discounts Avoided</p>
+    </div>
+    <div>
+      <p class="num accent-text">₹6.5L</p>
+      <p class="label">Additional Profit Generated</p>
+    </div>
+    <div>
+      <p class="num">+65%</p>
+      <p class="label">Conversion Improvement</p>
+    </div>
+  </div>
+</div>
+
+<div class="panel revenue-compare">
+  <h3>Profit Optimization Engine</h3>
+  <div class="compare-bars">
+    <div class="compare-row">
+      <span class="compare-label">Traditional — 20% to everyone</span>
+      <div class="bar-track"><div class="bar-fill muted" style="width:64%"></div></div>
+      <span class="compare-val">₹4.0L</span>
+    </div>
+    <div class="compare-row">
+      <span class="compare-label">Growexa — Personalized</span>
+      <div class="bar-track"><div class="bar-fill accent-fill" style="width:88%"></div></div>
+      <span class="compare-val">₹5.5L</span>
+    </div>
+  </div>
+  <p class="compare-footnote">Personalized targeting outperforms blanket discounting by <strong>+37.5%</strong></p>
+</div>
+</div>
+
+</section>
+
+<!-- ================= UPLOAD SECTION ================= -->
+
+<section class="section" id="upload">
+
+<div class="panel upload-panel">
+
+<div class="panel-head">
+<h2>Customer Data Upload</h2>
+<p class="panel-sub">
+Upload your customer CSV and Growexa AI will automatically analyse customer behaviour, generate segments and update every dashboard chart.
+</p>
+</div>
+
+<div class="upload-actions">
+
+<label class="upload-box">
+
+<input
+type="file"
+id="fileInput"
+accept=".csv"
+hidden>
+
+<div class="upload-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4"/><path d="m7 8 5-5 5 5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+</div>
+
+<h3>Select CSV File</h3>
+
+<p id="selectedFile">
+No file selected
+</p>
+
+<span class="btn-primary btn-sm">Choose CSV</span>
+
+</label>
+
+<div class="upload-buttons">
+
+<a
+href="{{ url_for('static', filename='sample_customer_data.csv') }}"
+download
+class="btn-secondary">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+Download Sample CSV
+
+</a>
+
+<button
+id="uploadBtn"
+class="btn-success">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 6 6 10-13"/></svg>
+Upload &amp; Analyze
+
+</button>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3>Required CSV Columns</h3>
+
+<div class="csv-columns">
+
+<span>Customer Name</span>
+
+<span>Email</span>
+
+<span>Mobile Number</span>
+
+<span>Total Spend</span>
+
+<span>Purchase Frequency</span>
+
+<span>Last Purchase Date</span>
+
+<span>Days Since Purchase</span>
+
+<span>Cart Abandoned</span>
+
+<span>Discount Used</span>
+
+<span>Product Category</span>
+
+<span>Customer City</span>
+
+</div>
+
+<hr>
+
+<div class="upload-status">
+
+<div class="status-card">
+
+<h4>Total Customers</h4>
+
+<h2 id="uploadCustomers">
+0
+</h2>
+
+</div>
+
+<div class="status-card">
+
+<h4>Total Revenue</h4>
+
+<h2 id="uploadRevenue">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="status-card">
+
+<h4>Average Spend</h4>
+
+<h2 id="uploadAverage">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="status-card">
+
+<h4>Top Category</h4>
+
+<h2 id="topCategory">
+
+-
+
+</h2>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3>CSV Preview</h3>
+
+<div class="table-responsive">
+
+<table class="data-table">
+
+<thead>
+
+<tr>
+
+<th>Customer Name</th>
+
+<th>Email</th>
+
+<th>Mobile</th>
+
+<th>Total Spend</th>
+
+<th>Purchase Frequency</th>
+
+<th>Last Purchase</th>
+
+<th>Days Since Purchase</th>
+
+<th>Cart</th>
+
+<th>Discount</th>
+
+<th>Category</th>
+
+<th>City</th>
+
+</tr>
+
+</thead>
+
+<tbody id="csvPreview">
+
+<tr>
+
+<td colspan="11">
+
+Upload a CSV file to preview customer data.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ============ RECOMMENDATIONS SECTION ============ -->
+<section class="section" id="recommendations">
+  <div class="panel">
+    <h3>AI Recommendation Center</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Customer</th><th>Customer Type</th><th>AI Recommendation</th><th>Discount</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rahul</td>
+          <td><span class="tag loyal">Loyal Customer</span></td>
+          <td>No Discount</td>
+          <td class="discount-cell">0%</td>
+        </tr>
+        <tr>
+          <td>Priya</td>
+          <td><span class="tag price">Price Sensitive</span></td>
+          <td>Offer Discount</td>
+          <td class="discount-cell hot">10%</td>
+        </tr>
+        <tr>
+          <td>Aman</td>
+          <td><span class="tag cart">Cart Abandoner</span></td>
+          <td>Reminder Message</td>
+          <td class="discount-cell">0%</td>
+        </tr>
+        <tr>
+          <td>Neha</td>
+          <td><span class="tag risk">At Risk</span></td>
+          <td>Re-engagement Offer</td>
+          <td class="discount-cell hot">15%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ SEGMENTS SECTION ============ -->
+<section class="section" id="segments">
+  <div class="seg-grid">
+    <div class="seg-card">
+      <span class="seg-dot loyal"></span>
+      <h4>Loyal Customers</h4>
+      <p>High purchase frequency. Likely to buy without discounts.</p>
+      <p class="seg-count">4,120 customers</p>
+    </div>
+    <div class="seg-card">
+      <span class="seg-dot price"></span>
+      <h4>Price-Sensitive</h4>
+      <p>Purchase mainly during offers.</p>
+      <p class="seg-count">3,580 customers</p>
+    </div>
+    <div class="seg-card">
+      <span class="seg-dot cart"></span>
+      <h4>Cart Abandoners</h4>
+      <p>Add products but don't complete purchase.</p>
+      <p class="seg-count">2,910 customers</p>
+    </div>
+    <div class="seg-card">
+      <span class="seg-dot risk"></span>
+      <h4>At-Risk</h4>
+      <p>Haven't purchased recently.</p>
+      <p class="seg-count">2,330 customers</p>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Segment Distribution</h3>
+    <div class="seg-bar-chart" id="segChart"></div>
+  </div>
+</section>
+
+<!-- ============ CAMPAIGNS SECTION ============ -->
+<section class="section" id="campaigns">
+  <div class="panel">
+    <h3>Automated Campaign Builder</h3>
+    <div class="campaign-card">
+      <div class="campaign-field"><span>Target Segment</span><strong>Cart Abandoners</strong></div>
+      <div class="campaign-field"><span>Channel</span><strong>WhatsApp</strong></div>
+      <div class="campaign-field"><span>Offer</span><strong>10% Discount</strong></div>
+      <div class="campaign-field"><span>Best Sending Time</span><strong>7:00 PM</strong></div>
+      <div class="campaign-field accent-field"><span>Expected Conversion</span><strong>+65%</strong></div>
+    </div>
+    <button class="btn-primary">Approve &amp; Launch Campaign</button>
+  </div>
+</section>
+
+<!-- ============ MESSAGING SECTION ============ -->
+<section class="section" id="messaging">
+  <div class="panel">
+    <h3>Automated WhatsApp &amp; Email Messaging</h3>
+    <p class="panel-sub">Once approved, Growexa sends messages automatically across channels.</p>
+    <div class="message-preview">
+      <div class="msg-bubble">
+        <p class="msg-channel">WhatsApp · Priya</p>
+        <p>Hi Priya! The product you viewed recently is now available with an exclusive 10% discount valid for 24 hours.</p>
+      </div>
+    </div>
+    <div class="channel-status">
+      <div class="ch-row"><span>WhatsApp Campaigns</span><span class="status-pill on">Active</span></div>
+      <div class="ch-row"><span>Email Campaigns</span><span class="status-pill on">Active</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ANALYTICS SECTION ================= -->
+
+<section class="section" id="analytics">
+
+<h2 class="section-title">
+Business Analytics Dashboard
+</h2>
+
+<p class="panel-sub">
+All charts update automatically whenever you upload a new customer CSV.
+</p>
+
+<!-- Analytics Summary -->
+
+<div class="analytics-summary">
+
+<div class="summary-card">
+<h3 id="totalRevenue">₹0</h3>
+<p>Total Revenue</p>
+</div>
+
+<div class="summary-card">
+<h3 id="averageSpend">₹0</h3>
+<p>Average Spend</p>
+</div>
+
+<div class="summary-card">
+<h3 id="totalCustomers">0</h3>
+<p>Total Customers</p>
+</div>
+
+<div class="summary-card">
+<h3 id="highestCustomer">-</h3>
+<p>Highest Spending Customer</p>
+</div>
+
+</div>
+
+<!-- Charts -->
+
+<div class="analytics-grid">
+
+<div class="chart-card">
+
+<h3>Revenue by Product Category</h3>
+
+<canvas id="categoryChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Customer Distribution by City</h3>
+
+<canvas id="cityChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Purchase Frequency</h3>
+
+<canvas id="purchaseChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Customer Spending</h3>
+
+<canvas id="spendingChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Discount Usage</h3>
+
+<canvas id="discountChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Cart Abandonment</h3>
+
+<canvas id="cartChart"></canvas>
+
+</div>
+
+</div>
+
+<hr>
+
+<h2>
+
+Advanced Analytics
+
+</h2>
+
+<div class="analytics-grid">
+
+<div class="chart-card">
+
+<h3>Revenue Trend</h3>
+
+<canvas id="lineChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Customer Segments</h3>
+
+<canvas id="segmentChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Top Customers</h3>
+
+<canvas id="topCustomerChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Days Since Purchase</h3>
+
+<canvas id="daysChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Spend Distribution</h3>
+
+<canvas id="distributionChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>Overall Business Health</h3>
+
+<canvas id="radarChart"></canvas>
+
+</div>
+
+</div>
+
+<hr>
+
+<h2>
+
+Customer Analytics Table
+
+</h2>
+
+<div class="table-responsive">
+
+<table class="data-table">
+
+<thead>
+
+<tr>
+
+<th>Customer</th>
+
+<th>City</th>
+
+<th>Category</th>
+
+<th>Total Spend</th>
+
+<th>Purchase Frequency</th>
+
+<th>Days Since Purchase</th>
+
+<th>Discount Used</th>
+
+<th>Cart Abandoned</th>
+
+</tr>
+
+</thead>
+
+<tbody id="analyticsTable">
+
+<tr>
+
+<td colspan="8">
+
+Upload a CSV file to populate analytics.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ============ AI ASSISTANT SECTION ============ -->
+<section class="section" id="assistant">
+  <div class="panel chat-panel">
+    <h3>AI Chat Assistant</h3>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-msg ai">Hi, I'm your Growexa assistant. Ask me about targeting, profit, or segments.</div>
+    </div>
+    <form class="chat-input-row" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Which customers should I target today?">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+</div>
+</main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
