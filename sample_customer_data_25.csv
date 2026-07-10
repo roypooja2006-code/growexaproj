@@ -1,0 +1,26 @@
+Customer Name,Email,Mobile Number,Total Spend,Purchase Frequency,Last Purchase Date,Days Since Purchase,Cart Abandoned,Discount Used,Product Category,Customer City
+Arjun Das,arjun.das@example.com,9222536244,47604,9,2026-03-03,122,Yes,No,Sports,Bengaluru
+Sneha Rao,sneha.rao@example.com,9558944286,4669,1,2026-01-31,153,Yes,Yes,Beauty,Kolkata
+Vikram Joshi,vikram.joshi@example.com,9573400383,21455,7,2026-03-17,108,Yes,No,Home & Living,Chennai
+Meera Nair,meera.nair@example.com,9573953416,43254,11,2026-02-03,150,Yes,Yes,Beauty,Delhi
+Rohan Gupta,rohan.gupta@example.com,9379966963,37414,3,2026-01-18,166,Yes,No,Beauty,Bengaluru
+Ananya Bose,ananya.bose@example.com,9700428723,2536,2,2026-05-01,63,Yes,No,Electronics,Mumbai
+Kabir Khan,kabir.khan@example.com,9599917287,12697,7,2026-03-28,97,No,No,Home & Living,Hyderabad
+Ishita Sen,ishita.sen@example.com,9770606832,32647,10,2026-05-10,54,No,Yes,Fashion,Mumbai
+Dev Malhotra,dev.malhotra@example.com,9953022739,29511,7,2026-05-08,56,No,No,Sports,Mumbai
+Nisha Iyer,nisha.iyer@example.com,9806258488,12069,15,2026-06-11,22,No,No,Sports,Mumbai
+Yash Kulkarni,yash.kulkarni@example.com,9255269705,792,4,2026-01-26,158,Yes,Yes,Beauty,Hyderabad
+Pallavi Jain,pallavi.jain@example.com,9430128194,26405,18,2026-01-06,178,No,Yes,Beauty,Mumbai
+Harsh Bansal,harsh.bansal@example.com,9055538925,1486,7,2026-02-04,149,No,No,Fashion,Chennai
+Tanvi Kapoor,tanvi.kapoor@example.com,9203492076,43748,10,2026-01-12,172,Yes,Yes,Home & Living,Chennai
+Siddharth Roy,siddharth.roy@example.com,9532791035,1811,18,2026-03-03,122,Yes,Yes,Electronics,Kolkata
+Aditi Sinha,aditi.sinha@example.com,9806966545,43249,10,2026-01-04,180,No,Yes,Fashion,Kolkata
+Kunal Arora,kunal.arora@example.com,9838693209,8485,18,2026-05-02,62,Yes,Yes,Electronics,Kolkata
+Riya Chawla,riya.chawla@example.com,9631087495,14249,9,2026-05-04,60,Yes,No,Beauty,Pune
+Manav Saxena,manav.saxena@example.com,9850520433,47390,14,2026-02-10,143,Yes,Yes,Fashion,Pune
+Simran Gill,simran.gill@example.com,9554673212,21068,4,2026-05-24,40,Yes,No,Fashion,Chennai
+Aditya Rao,aditya.rao@example.com,9079864114,28533,8,2026-06-30,3,Yes,Yes,Home & Living,Kolkata
+Pooja Nanda,pooja.nanda@example.com,9763788472,36936,7,2026-04-18,76,No,Yes,Sports,Bengaluru
+Nitin Shah,nitin.shah@example.com,9873856257,29212,13,2026-05-23,41,Yes,No,Sports,Pune
+Kavya Menon,kavya.menon@example.com,9787702232,10314,9,2026-02-14,139,Yes,Yes,Home & Living,Mumbai
+Aryan Dutta,aryan.dutta@example.com,9355037258,33818,5,2026-03-05,120,No,No,Home & Living,Delhi
